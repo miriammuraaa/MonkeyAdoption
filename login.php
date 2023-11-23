@@ -2,8 +2,8 @@
 
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    header('Location: /php-login');
+if (isset($_SESSION['id'])) {
+    header('Location: /MonkeyAdoption');
 }
 require 'database.php';
 
@@ -16,7 +16,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $message = '';
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-        $_SESSION['user_id'] = $results['id'];
+        $_SESSION['id'] = $results['id'];
         header("Location: /php-login");
     } else {
         $message = 'Sorry, those credentials do not match';

@@ -4,14 +4,12 @@ require 'database.php';
 
 $message = '';
 
-if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['phone'])) {
-    $sql = "INSERT INTO users (email, password, name, phone) VALUES (:email, :password, :name, :phone)";
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO users (id, email, password) VALUES (NULL, :email, :password)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':email', $_POST['email']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
     $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':name', $_POST['name']);
-    $stmt->bindParam(':phone', $_POST['phone']);
 
     if ($stmt->execute()) {
         $message = 'Successfully created new user';
@@ -20,7 +18,6 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -44,13 +41,11 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['name
     <h1>SignUp</h1>
     <span>or <a href="login.php">Login</a></span>
 
-    <form action="signup.php" method="POST">
-        <input name="name" type="text" placeholder="Enter your name">
+    <form action="signup.php" method="post">
         <input name="email" type="text" placeholder="Enter your email">
-        <input name="phone" type="text" placeholder="Enter your phone number">
         <input name="password" type="password" placeholder="Enter your Password">
         <input name="confirm_password" type="password" placeholder="Confirm Password">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Send">
     </form>
 
 </body>
