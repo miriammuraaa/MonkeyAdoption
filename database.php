@@ -1,9 +1,9 @@
 <?php
 
-$server = 'localhost:3307';
+$server = 'localhost';
 $username = 'root';
 $password = '2550-2550';
-$database = 'MonkeyAdoption_database';
+$database = 'monkeyadoption_database';
 
 try {
     $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
