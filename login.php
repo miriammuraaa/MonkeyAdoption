@@ -2,9 +2,6 @@
 
 session_start();
 
-if (isset($_SESSION['id'])) {
-    header('Location: /MonkeyAdoption');
-}
 require 'database.php';
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
