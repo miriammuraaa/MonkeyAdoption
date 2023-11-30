@@ -19,35 +19,44 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="es" dir="ltr">
 <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>SignUp</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <?php require 'partials/header.php' ?>
+    <div class="main">
+        <div class="container a-container" id="a-container">
+            <form id="a-form" class="form" method="" action="">
+                <h2 class="form_title title">Create Account</h2>
+                <div class="form__icons">
+                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
+                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
+                </div>
+                <span class="form__span">or use email for registration</span>
+                <input class="form__input" type="text" placeholder="Name">
+                <input class="form__input" type="text" placeholder="Email">
+                <input class="form__input" type="password" placeholder="Password">
+                <button class="form__button button submit">SIGN UP</button>
+            </form>
+        </div>
 
-    <?php if (!empty($message)): ?>
-        <p>
-            <?= $message ?>
-        </p>
-    <?php endif; ?>
-
-    <h1>SignUp</h1>
-    <span>or <a href="login.php">Login</a></span>
-
-    <form action="signup.php" method="post">
-        <input name="email" type="text" placeholder="Enter your email">
-        <input name="password" type="password" placeholder="Enter your Password">
-        <input name="confirm_password" type="password" placeholder="Confirm Password">
-        <input type="submit" value="Send">
-    </form>
+        <div class="container b-container" id="b-container">
+            <form id="b-form" class="form" method="" action="">
+                <h2 class="form_title title">Sign in to Website</h2>
+                <div class="form__icons">
+                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
+                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
+                </div>
+                <input class="form__input" type="text" placeholder="Email">
+                <input class="form__input" type="password" placeholder="Password">
+                <button class="form__button button submit">SIGN IN</button>
+            </form>
+        </div>
+    </div>
 
 </body>
-
 </html>
