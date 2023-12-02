@@ -54,7 +54,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
         <div class="caja_secundaria_log">
             <div>
-                <h1>Hello, Friend!</h1>
+                <h1>Hello, Friendd!</h1>
                 <p>Register whith your personal details to use all of site features</p>
                 <a href="signup.php">
                     <input type="sign_up_log" value="SIGN UP">
