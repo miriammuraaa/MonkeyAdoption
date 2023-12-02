@@ -24,7 +24,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>Login</title>
