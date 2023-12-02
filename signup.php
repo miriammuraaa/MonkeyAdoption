@@ -19,44 +19,48 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html>
+
 <head>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>SignUp</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <div class="main">
-        <div class="container a-container" id="a-container">
-            <form id="a-form" class="form" method="" action="">
-                <h2 class="form_title title">Create Account</h2>
-                <div class="form__icons">
-                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
-                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
-                </div>
-                <span class="form__span">or use email for registration</span>
-                <input class="form__input" type="text" placeholder="Name">
-                <input class="form__input" type="text" placeholder="Email">
-                <input class="form__input" type="password" placeholder="Password">
-                <button class="form__button button submit">SIGN UP</button>
-            </form>
+    <?php require 'partials/header.php' ?>
+
+    <?php if (!empty($message)): ?>
+        <p>
+            <?= $message ?>
+        </p>
+    <?php endif; ?>
+    <div class="caja_global">
+        <div class="caja_secundaria">
+            <div>
+                <h1>Welcome Back!</h1>
+                <p>Enter your personal details to use all of site features</p>
+                <a href="login.php">
+                    <input type="sign_in" value="SIGN IN">
+                </a>
+            </div>
         </div>
 
-        <div class="container b-container" id="b-container">
-            <form id="b-form" class="form" method="" action="">
-                <h2 class="form_title title">Sign in to Website</h2>
-                <div class="form__icons">
-                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
-                    <img class="form__icon" src="data:image/svg+xml;base64, ... " alt="">
-                </div>
-                <input class="form__input" type="text" placeholder="Email">
-                <input class="form__input" type="password" placeholder="Password">
-                <button class="form__button button submit">SIGN IN</button>
-            </form>
+        <div class="caja_principal">
+            <div>
+                <h1>Create Account</h1>
+                <form action="signup.php" method="post">
+                    <input name="email" type="text" placeholder="Enter your email">
+                    <input name="password" type="password" placeholder="Enter your Password">
+                    <input name="confirm_password" type="password" placeholder="Confirm Password">
+                    <input type="submit" id="sign_up" value="SIGN UP">
+                </form>
+            </div>
         </div>
     </div>
 
 </body>
+
 </html>

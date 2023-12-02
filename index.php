@@ -37,6 +37,7 @@ if (isset($_SESSION['id'])) {
         <a href="logout.php">
             Logout
         </a>
+        
     <?php else: ?>
         <h1>Please Login or SignUp</h1>
 
