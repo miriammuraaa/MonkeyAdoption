@@ -3,72 +3,75 @@ session_start();
 
 require 'database.php';
 
-if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');
-    $records->bindParam(':email', $_POST['email']);
+if (isset($_SESSION['id'])) {
+    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
+    $records->bindParam(':id', $_SESSION['id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
-    $message = '';
+    $user = null;
 
-    if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-        $_SESSION['id'] = $results['id'];
-        header("Location: /MonkeyAdoption");
-    } else {
-        $message = 'Sorry, those credentials do not match';
+    if (count($results) > 0) {
+        $user = $results;
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Monkey Adoption</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/stile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+
+        #demo {
+            height: 650px;
+            /* Ajusta el tamaño máximo del carrusel según tus necesidades */
+            margin: auto;
+            /* Centra el carrusel */
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            /* Hace que las imágenes ocupen el ancho completo del contenedor */
+            height: 650px;
+            /* Hace que las imágenes ocupen la altura completa del contenedor */
+            object-fit: cover;
+            /* Cubre el contenedor, manteniendo la proporción y recortando según sea necesario */
+        }
+
+        .link-hover:hover {
+            opacity: 0.8;
+            /* Puedes ajustar este valor para cambiar la intensidad del oscurecimiento */
+        }
+    </style>
 </head>
 
 <body>
-    <?php require 'partials/header.php' ?>
-
     <?php if (!empty($user)): ?>
+        <?php require 'partials/header2.php' ?>
         <br> Welcome.
         <?= $user['email']; ?>
         <br>You are Successfully Logged In
         <a href="logout.php">
             Logout
         </a>
+        <?php require 'inicio.php' ?>
         
     <?php else: ?>
-        <?php if (!empty($message)): ?>
-        <p>
-            <?= $message ?>
-        </p>
-    <?php endif; ?>
+        <?php require 'partials/header.php' ?>
 
-    <div class="caja_global">
-        <div class="caja_principal_log">
-            <div>
-                <h1>Create Account</h1>
-                <form action="login.php" method="POST">
-                    <input name="email" type="text" placeholder="Enter your email">
-                    <input name="password" type="password" placeholder="Enter your Password">
-                    <input type="submit" id="sign_in_log" value="SIGN IN">
-                </form>
-            </div>
-        </div>
+        <?php require 'inicio.php' ?>
 
-        <div class="caja_secundaria_log">
-            <div>
-                <h1>Hello, Friend!</h1>
-                <p>Register whith your personal details to use all of site features</p>
-                <a href="signup.php">
-                    <input type="sign_up_log" value="SIGN UP">
-                </a>
-            </div>
-        </div>
-    </div>
     <?php endif; ?>
 </body>
 

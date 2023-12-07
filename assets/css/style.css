@@ -1,16 +1,57 @@
+/*--------------------------TEXTS--------------------------*/
 h1 {
     font-weight: bold;
 }
 
-/* General */
+/*--------------------------BUTTON--------------------------*/
+#ninth {
+    width: 100%;
+}
+
+.buttonBox {
+    margin-top: 20px;
+    /* Ajusta el margen superior según tus necesidades */
+}
+
+.buttonBox button, .buttonBoxContover button {
+    font-family: 'Roboto', sans-serif;
+    padding: 15px;
+    color: #ffffff;
+    width: 160px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    border: none;
+}
+
+.buttonBox button:hover {
+    background: rgb(135, 117, 92);
+}
+.buttonBox button {
+    background: rgb(109, 89, 61);
+    color: #ffffff;
+}
+.buttonBoxContover
+button:hover {
+    background: rgb(135, 92, 116);
+}
+.buttonBoxContover button {
+    background: rgb(255, 255, 255);
+    color: #000000;
+}
+
+/*--------------------------BODY--------------------------*/
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    text-decoration: none;
+    list-style: none;
 }
 
-/* Input Forms*/
+/*--------------------------FORMS SIGN IN/SIGN UP--------------------------*/
 input[type="text"],
 input[type="password"] {
     outline: none;
@@ -40,7 +81,8 @@ input[type="sign_in"] {
     text-align: center;
 }
 
-#sign_up{
+#sign_up,
+#sign_in_log {
     font-family: 'Roboto', sans-serif;
     padding: 10px;
     color: #ffffff;
@@ -57,22 +99,7 @@ input[type="sign_in"] {
     text-align: center;
 }
 
-#sign_in_log {
-    font-family: 'Roboto', sans-serif;
-    padding: 10px;
-    color: #ffffff;
-    width: 120px;
-    margin: 20px auto;
-    margin-top: 0;
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-    background: rgb(109, 89, 61);
-    border-radius: 12px;
-    margin: 10px auto;
-    text-align: center;
-    border: none;
-}
+
 
 input[type="sign_up_log"] {
     font-family: 'Roboto', sans-serif;
@@ -98,21 +125,225 @@ input[type="sign_up_log"]:hover {
     background: rgb(135, 117, 92);
 }
 
-/* Header */
+/*--------------------------HEADER--------------------------*/
 header {
     border-bottom: 2px solid #eee;
-    padding: 20px 0;
+    padding: 15px 0;
     margin-bottom: 10px;
     width: 100%;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 header a {
+    margin-left: 30px;
+    margin-right: 30px;
     text-decoration: none;
-    color: #333;
+    color: #333336;
+    font-weight: 400;
+    letter-spacing: -.01em;
 }
 
-/*------------Pagina de Register------------*/
+header a:hover {
+    color: #000000;
+}
+
+header a p {
+    font-size: 12px;
+}
+
+/* Estilo del desplegable */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 18px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(59, 59, 59);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #000000;
+}
+
+/* Mostrar el desplegable al pasar el ratón sobre el contenedor */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*--------------------------ADOPCION INICIO--------------------------*/
+.blocInicio-inicio {
+    /* border: solid blue 2px; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.blocInicio-inicio img {
+    border-radius: 18px;
+}
+
+.texto-bloque-inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 50px;
+    /* border: red solid 1px; */
+    width: 30%;
+    flex-wrap: wrap;
+    color: #000000 !important;
+}
+
+.texto-bloque-inicio h1 {
+    width: 100%;
+}
+
+/*--------------------------ANIMALES URGENTES--------------------------*/
+.container {
+    /* max-width: 1040px; */
+    margin: 0 auto;
+}
+
+.swiper {
+    margin-top: 40px;
+    padding-left: 6vh !important;
+    padding-right: 6vh !important;
+    margin-bottom: 80px;
+}
+
+.swiper-slide {
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    width: 295px;
+    height: 334px !important;
+    position: relative;
+    overflow: hidden;
+    /* Evitar que la imagen sobresalga del contenedor */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    object-fit: cover;
+    /* Ajustar la imagen para que cubra completamente el contenedor sin deformarse */
+}
+
+.swiper-text {
+    position: absolute;
+    padding: 25px;
+}
+
+.swiper-text h3,
+.swiper-text p {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+/* Aplicar el estilo de la galería */
+.gallery {
+    border: 1px solid #ccc;
+}
+
+.gallery:hover {
+    border: 1px solid #777;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/*--------------------------DONACIONES--------------------------*/
+.blocInicio-donaciones{
+    background-color: #1E293B;
+}
+
+.text-donaciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 45px;
+}
+
+.text-donaciones h1{
+    color: #ffffff;
+    width: 100%;
+}
+
+.text-white{
+    color: #ffffff;
+}
+/*--------------------------VIDEO--------------------------*/
+.blocInicio-video{
+    padding: 50px;
+}
+.box-video{
+    border: 1px solid red;
+}
+.video iframe{
+    border-radius: 18px;
+}
+
+/*--------------------------FOOTER--------------------------*/
+.blocInicio-footer{
+    background-color: #333336;
+    height: 500px;
+}
+
+/*--------------------------REGISTER--------------------------*/
 .caja_global {
     display: flex;
     font-size: 2vh;

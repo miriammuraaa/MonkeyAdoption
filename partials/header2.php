@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,15 +36,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="login.php">Sign In</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="signup.php">Sign Up</a>
+                        <a class="nav-link" href="login.php">My perfile</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
 </body>
 
 </html>
