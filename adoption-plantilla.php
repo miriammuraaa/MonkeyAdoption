@@ -3,6 +3,37 @@ session_start();
 
 require 'database.php';
 
+// Verificar si se proporciona un ID en la URL
+if (isset($_GET['id'])) {
+    // Obtener el ID de la URL
+    $id = $_GET['id'];
+
+    try {
+        // Consultar la base de datos con el ID proporcionado
+        $records = $conn->prepare('SELECT id, name, age, sex, breed, `date-of-birth`, description, img FROM monkeys WHERE id = :id');
+        $records->bindParam(':id', $id);
+        $records->execute();
+        $results = $records->fetch(PDO::FETCH_ASSOC);
+
+        $monkey = null;
+
+        // Verificar si se encontraron resultados
+        if (count($results) > 0) {
+            $monkey = $results;
+        } else {
+            // Manejar el caso donde no se encuentra un mono con el ID proporcionado
+            echo "No se encontró ningún mono con el ID proporcionado.";
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+} else {
+    // Manejar el caso donde no se proporciona un ID
+    echo "No se proporcionó un ID de mono.";
+}
+
+require 'database.php';
+
 if (isset($_SESSION['id'])) {
     $records = $conn->prepare('SELECT id, email, password_hash FROM users WHERE id = :id');
     $records->bindParam(':id', $_SESSION['id']);
@@ -17,14 +48,14 @@ if (isset($_SESSION['id'])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Monkey Adoption</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/stile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -67,13 +98,14 @@ if (isset($_SESSION['id'])) {
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Adoption</li>
+        <li class="breadcrumb-item"><a href="adoption.php">Adoption</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Monkey perfile</li>
     </ol>
 </nav>
     <div class="container-fluid p-5 bg-dark text-white text-center">
         <h1>Adoption</h1>
     </div>
-    <?php require 'adoption-monkeys.php' ?>
+    <?php require 'adoption-plantilla2.php' ?>
     <?php require 'footer.php' ?>
     <?php else: ?>
         <?php require 'partials/header.php' ?>
@@ -81,13 +113,14 @@ if (isset($_SESSION['id'])) {
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Adoption</li>
+        <li class="breadcrumb-item"><a href="adoption.php">Adoption</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Monkey perfile</li>
     </ol>
 </nav>
     <div class="container-fluid p-5 bg-dark text-white text-center">
         <h1>Adoption</h1>
     </div>
-    <?php require 'adoption-monkeys.php' ?>
+    <?php require 'adoption-plantilla2.php' ?>
     <?php require 'footer.php' ?>
     <?php endif; ?>
 </body>

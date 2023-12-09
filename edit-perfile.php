@@ -53,41 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Monkey Adoption</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Monkey Adoption</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/stile.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-        .fakeimg {
-            height: 200px;
-            background: #aaa;
-        }
-
-        #demo {
-            height: 650px;
-            /* Ajusta el tamaño máximo del carrusel según tus necesidades */
-            margin: auto;
-            /* Centra el carrusel */
-        }
-
-        .carousel-inner img {
-            width: 100%;
-            /* Hace que las imágenes ocupen el ancho completo del contenedor */
-            height: 650px;
-            /* Hace que las imágenes ocupen la altura completa del contenedor */
-            object-fit: cover;
-            /* Cubre el contenedor, manteniendo la proporción y recortando según sea necesario */
-        }
-
-        .link-hover:hover {
-            opacity: 0.8;
-            /* Puedes ajustar este valor para cambiar la intensidad del oscurecimiento */
-        }
         ol.breadcrumb {
             background-color: #f8f9fa; /* Color de fondo */
             padding: 10px 0; /* Espaciado interno ajustado */
@@ -126,11 +101,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">My perfile</li>
+        <li class="breadcrumb-item"><a href="perfile.php">My perfile</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
     </ol>
 </nav>
+
     <div class="container-fluid p-5 bg-dark text-white text-center">
-        <h1>My perfile</h1>
+        <h1>Edit Profile</h1>
+        <p>Make changes to your profile below.</p>
     </div>
 
     <div id="user-datos" class="container-fluid">
@@ -141,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="account-settings text-center">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="assets/img/perfil.png" alt="Maxwell Admin">
+                                    <img src="assets/img/perfil.png" alt="Profile Picture">
                                 </div>
                                 <h5 class="user-name">
                                     <?= $user['first_name'] . ' ' . $user['last_name']; ?>
@@ -156,54 +134,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="card h-90 m-5">
-                    <div class="card-body m-2">
-                        <div class="row gutters">
-
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                                <h6 class="mb-2 text-primary">Personal Details</h6>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                <div class="form-group">
-                                    <label for="fullName">
-                                        <h6 class="user-name">
-                                            Name:
-                                        </h6>
-                                    </label>
-                                    <input type="text" class="form-control" id="fullName"
-                                        placeholder=" <?= $user['first_name']; ?>">
+                    <div class="card-body m-2 ">
+                        <div class="row gutters ">
+                            <!-- Formulario para editar datos -->
+                            <!-- <form method="POST" action=""> -->
+                                <div method="POST" action="" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                    <h6 class="mb-2 text-primary">Edit Personal Details</h6>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="phone">
-                                        <h6 class="user-name">
-                                            Last name:
-                                        </h6>
-                                    </label>
-                                    <input type="text" class="form-control" id="phone"
-                                        placeholder="<?= $user['last_name']; ?>">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="newFirstName">
+                                            <h6 class="user-name">
+                                                Name:
+                                            </h6>
+                                        </label>
+                                        <input type="text" class="form-control" id="newFirstName" name="newFirstName"
+                                            value="<?= $user['first_name']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                <div class="form-group">
-                                    <label for="eMail">
-                                        <h6 class="user-email">
-                                            Email:
-                                        </h6>
-                                    </label>
-                                    <input type="email" class="form-control" id="eMail"
-                                        placeholder="<?= $user['email']; ?>">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="newLastName">
+                                            <h6 class="user-name">
+                                                Last name:
+                                            </h6>
+                                        </label>
+                                        <input type="text" class="form-control" id="newLastName" name="newLastName"
+                                            value="<?= $user['last_name']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="newEmail">
+                                            <h6 class="user-email">
+                                                Email:
+                                            </h6>
+                                        </label>
+                                        <input type="email" class="form-control" id="newEmail" name="newEmail"
+                                            value="<?= $user['email']; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="newPhone">
                                             <h6 class="user-name">
                                                 Phone:
                                             </h6>
                                         </label>
-                                        <input type="text" class="form-control" id="newPhone" name="newPhone"
-                                            placeholder="Enter your phone number" value="<?= $user['phone_number']; ?>">
+                                        <input type="text" class="form-control" id="newPhone" name="newPhone" placeholder="Enter your phone number"
+                                            value="<?= $user['phone_number']; ?>">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
@@ -224,9 +203,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             placeholder="Enter your address" value="<?= $user['address']; ?>">
                                     </div>
                                 </div>
-                            <a href="edit-perfile.php">
-                                <button class="btn btn-dark mt-4">Edit perfile</button>
-                            </a>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                    <button type="submit" class="btn btn-dark mt-4">Save changes</button>
+                                    <a href="perfile.php" class="btn bg-danger text-light mt-4">Cancel</a>
+                                </div>
+                            <!-- </form> -->
                         </div>
                     </div>
                 </div>

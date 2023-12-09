@@ -4,7 +4,7 @@ session_start();
 require 'database.php';
 
 if (isset($_SESSION['id'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE id = :id');
+    $records = $conn->prepare('SELECT id, email, password_hash FROM users WHERE id = :id');
     $records->bindParam(':id', $_SESSION['id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -59,18 +59,44 @@ if (isset($_SESSION['id'])) {
 <body>
     <?php if (!empty($user)): ?>
         <?php require 'partials/header2.php' ?>
-        <br> Welcome.
+        
+        <!-- <br> Welcome. 
         <?= $user['email']; ?>
         <br>You are Successfully Logged In
         <a href="logout.php">
             Logout
-        </a>
+        </a> -->
         <?php require 'inicio.php' ?>
-        
+        <!-- Modal de inicio de sesión exitoso -->
+        <!-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="successModalLabel">Inicio de Sesión Exitoso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bienvenido,
+                            <?= $user['email']; ?>
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.onload = function  () {             var successModal = new bootstrap.Modal(document.getElementById('successModal'));             successModal.show();         };
+        </script> -->
+        <?php require 'footer.php' ?>
     <?php else: ?>
         <?php require 'partials/header.php' ?>
 
         <?php require 'inicio.php' ?>
+        <?php require 'footer.php' ?>
 
     <?php endif; ?>
 </body>

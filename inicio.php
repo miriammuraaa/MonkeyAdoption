@@ -16,23 +16,17 @@
 
         #demo {
             height: 650px;
-            /* Ajusta el tamaño máximo del carrusel según tus necesidades */
             margin: auto;
-            /* Centra el carrusel */
         }
 
         .carousel-inner img {
             width: 100%;
-            /* Hace que las imágenes ocupen el ancho completo del contenedor */
             height: 650px;
-            /* Hace que las imágenes ocupen la altura completa del contenedor */
             object-fit: cover;
-            /* Cubre el contenedor, manteniendo la proporción y recortando según sea necesario */
         }
 
         .link-hover:hover {
             opacity: 0.8;
-            /* Puedes ajustar este valor para cambiar la intensidad del oscurecimiento */
         }
     </style>
 </head>
@@ -94,7 +88,9 @@
                         <p class="card-text">Adventurous and playful, the capuchin is known for its intelligence and
                             love for fun.
                         </p>
-                        <button class="btn btn-dark">Adopt</button>
+                        <a href="adoption.php">
+                            <button class="btn btn-dark">Adopt</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -106,7 +102,9 @@
                         <h4 class="card-title">Mischievous Marmoset</h4>
                         <p class="card-text">With its small size and affectionate nature, the marmoset becomes a loving
                             and loyal companion.</p>
-                        <button class="btn btn-dark">Adopt</button>
+                        <a href="adoption.php">
+                            <button class="btn btn-dark">Adopt</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -117,7 +115,9 @@
                         <h4 class="card-title">Witty Siamang</h4>
                         <p class="card-text">Recognized for its distinctive call, the siamang is a sociable and
                             energetic monkey.</p>
-                        <button class="btn btn-dark">Adopt</button>
+                        <a href="adoption.php">
+                            <button class="btn btn-dark">Adopt</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,9 @@
                     and connecting them with dedicated families. With a deep commitment to animal welfare, our team
                     works tirelessly to deliver exceptional care and ensure an enriching environment for our beloved
                     primates.</p>
-                <button class="btn btn-dark">More information</button>
+                <a href="about_us.php">
+                    <button class="btn btn-dark">More information</button>
+                </a>
             </div>
         </div>
     </div>
@@ -143,7 +145,9 @@
     <div class="bg-light p-5 text-center">
         <h2>Support Our Monkeys</h2>
         <p>Help our monkeys find a loving home and exceptional care. Make a difference today! </p>
-        <button class="btn btn-dark">Donate now</button>
+        <a href="donation.php">
+                    <button class="btn btn-dark">Donate now</button>
+                </a>
     </div>
 
     <div class="container mt-5 mb-5">
@@ -154,39 +158,7 @@
                 allowfullscreen></iframe>
         </div>
     </div>
-    <!-- Footer -->
-    <div class="mt-5 p-4 bg-dark text-white text-center">
-        <div class="row">
-            <div class="col-lg-4">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="about-us.html" class="text-decoration-none text-reset link-hover">About Us</a></li>
-                    <li><a href="adoption.html" class="text-decoration-none text-reset link-hover">Adoption</a></li>
-                    <li><a href="donation.html" class="text-decoration-none text-reset link-hover">Donation</a></li>
-                    <li><a href="contact.html" class="text-decoration-none text-reset link-hover">Contact</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h5>Social Media</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" target="_blank" class="text-decoration-none text-reset link-hover">Facebook</a></li>
-                    <li><a href="#" target="_blank" class="text-decoration-none text-reset link-hover">Twitter</a></li>
-                    <li><a href="#" target="_blank" class="text-decoration-none text-reset link-hover">Instagram</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h5>Legal</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-decoration-none text-reset link-hover">Cookies</a></li>
-                    <li><a href="#" class="text-decoration-none text-reset link-hover">Privacy</a></li>
-                </ul>
-            </div>
-        </div>
-        <p>&copy; 2023 Monkey Adoption</p>
-        <p>Angkor Wat, Krong Siem Reap, Cambodia</p>
-        <p>Email: info@monkeyadoption.com | Phone: (123) 456-7890</p>
-    </div>
+    
 </body>
 
 </html>

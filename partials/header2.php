@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="assets/img/logo_sin_letra_blanco.png" alt="Logo" style="width:40px;"
                     class=" ms-3 rounded-pill">
             </a>
@@ -22,21 +22,24 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="javascript:void(0)">About Us</a>
+                        <a class="nav-link" href="about_us.php">About Us</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="javascript:void(0)">Adoption</a>
+                        <a class="nav-link" href="adoption.php">Adoption</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="javascript:void(0)">Donation</a>
+                        <a class="nav-link" href="donation.php">Donation</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="javascript:void(0)">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
+                <li class="nav-item me-4">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="login.php">My perfile</a>
+                        <a class="nav-link" href="perfile.php">My perfile</a>
                     </li>
                 </ul>
             </div>
